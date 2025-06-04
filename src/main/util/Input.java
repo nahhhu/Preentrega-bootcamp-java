@@ -20,4 +20,15 @@ public class Input {
             }
         }
     }
+
+    public static double decimal(String mensaje) {
+        while (true) {
+            try {
+                System.out.println(mensaje);
+                return Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Error. Ingresa un número decimal válido (por ejemplo: 15.50)");
+            }
+        }
+    }
 }

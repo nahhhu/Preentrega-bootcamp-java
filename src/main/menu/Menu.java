@@ -1,6 +1,6 @@
 package menu;
 
-import excepciones.OpcionIncorrecta;
+import excepciones.OpcionIncorrectaException;
 import inventario.Inventario;
 import util.Input;
 
@@ -29,7 +29,8 @@ public class Menu {
                 System.out.println("Lista de productos: ");
                 inventario.mostrarProductos();
             } else if (opcion == 3) {
-                System.out.println("Busque o actualice su producto: ");
+                System.out.println("Busque y actualice su producto: ");
+                inventario.buscarYActualizarProducto();
             } else if (opcion == 4) {
                 System.out.println("Elimine un producto: ");
             } else if (opcion == 5) {
@@ -39,7 +40,7 @@ public class Menu {
             } else if (opcion == 7) {
                 break;
             } else {
-                throw new OpcionIncorrecta("Ingresa una opcion valida");
+                throw new OpcionIncorrectaException("Ingresa una opcion valida");
             }
         }
     }

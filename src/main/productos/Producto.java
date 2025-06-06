@@ -1,8 +1,8 @@
 package productos;
 
-import excepciones.NombreInvalido;
-import excepciones.PrecioInvalido;
-import excepciones.StockInvalido;
+import excepciones.NombreInvalidoException;
+import excepciones.PrecioInvalidoException;
+import excepciones.StockInvalidoException;
 
 public abstract class Producto {
 
@@ -31,7 +31,7 @@ public abstract class Producto {
         if (nombre != null && !nombre.trim().isEmpty()) {
             this.nombre = nombre;
         } else {
-            throw new NombreInvalido("El nombre no puede estar vacio ni nulo");
+            throw new NombreInvalidoException("El nombre no puede estar vacio ni nulo");
         }
     }
 
@@ -43,7 +43,7 @@ public abstract class Producto {
         if (precio >= 1) {
             this.precio = precio;
         } else {
-            throw new PrecioInvalido("El precio debe ser mayor que 0");
+            throw new PrecioInvalidoException("El precio debe ser mayor que 0");
         }
     }
 
@@ -55,7 +55,7 @@ public abstract class Producto {
         if (stock >= 0) {
             this.stock = stock;
         } else {
-            throw new StockInvalido("El stock no puede ser negavito");
+            throw new StockInvalidoException("El stock no puede ser negavito");
         }
     }
 }

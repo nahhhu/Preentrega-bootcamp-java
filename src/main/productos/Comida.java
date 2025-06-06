@@ -1,6 +1,6 @@
 package productos;
 
-import excepciones.DatoInvalido;
+import excepciones.DatoInvalidoException;
 
 public class Comida extends Producto {
     private String marca;
@@ -20,7 +20,7 @@ public class Comida extends Producto {
         if (marca != null || !marca.trim().isEmpty()) {
             this.marca = marca;
         } else {
-            throw new DatoInvalido("Debe decir de que marca es el producto, no puede ingresar un dato nulo");
+            throw new DatoInvalidoException("Debe decir de que marca es el producto, no puede ingresar un dato nulo");
         }
     }
 
@@ -32,7 +32,7 @@ public class Comida extends Producto {
         if (peso >= 1) {
             this.peso = peso;
         } else {
-            throw new DatoInvalido("El peso no puede ser negativo ni 0");
+            throw new DatoInvalidoException("El peso no puede ser negativo ni 0");
         }
     }
 }

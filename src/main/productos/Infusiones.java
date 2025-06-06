@@ -1,6 +1,6 @@
 package productos;
 
-import excepciones.DatoInvalido;
+import excepciones.DatoInvalidoException;
 
 public class Infusiones extends Producto {
     private String tipo;
@@ -20,7 +20,7 @@ public class Infusiones extends Producto {
         if (tipo != null || !tipo.trim().isEmpty()) {
             this.tipo = tipo;
         } else {
-            throw new DatoInvalido("El tipo de bebida no puede estar vacio.");
+            throw new DatoInvalidoException("El tipo de bebida no puede estar vacio.");
         }
     }
 
@@ -32,7 +32,7 @@ public class Infusiones extends Producto {
         if (gramos >= 0) {
             this.gramos = gramos;
         } else {
-            throw new DatoInvalido("Los gramos de la infucion no pueden ser 0 ni negativos.");
+            throw new DatoInvalidoException("Los gramos de la infucion no pueden ser 0 ni negativos.");
         }
     }
 }

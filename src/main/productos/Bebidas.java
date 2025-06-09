@@ -20,7 +20,11 @@ public class Bebidas extends Producto implements Actualizable, Informativo {
     }
 
     public void setLitros(double litros) {
-        this.litros = litros;
+        if (litros > 0) {
+            this.litros = litros;
+        } else {
+            throw new DatoInvalidoException("Los litros deben ser mayores a 0.");
+        }
     }
 
     public String getTipo() {

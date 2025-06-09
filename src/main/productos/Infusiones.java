@@ -33,7 +33,7 @@ public class Infusiones extends Producto implements Actualizable, Informativo {
     }
 
     public void setGramos(double gramos) {
-        if (gramos >= 0) {
+        if (gramos >= 1) {
             this.gramos = gramos;
         } else {
             throw new DatoInvalidoException("Los gramos de la infucion no pueden ser 0 ni negativos.");

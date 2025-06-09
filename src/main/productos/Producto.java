@@ -55,7 +55,7 @@ public abstract class Producto {
         if (stock >= 0) {
             this.stock = stock;
         } else {
-            throw new StockInvalidoException("El stock no puede ser negavito");
+            throw new StockInvalidoException("El stock no puede ser negativo");
         }
     }
 }

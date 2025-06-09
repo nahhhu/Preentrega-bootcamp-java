@@ -31,6 +31,7 @@ public class Pedido {
 
     @Override
     public String toString() {
+        System.out.println("----------------");
         StringBuilder sb = new StringBuilder("Pedido #" + id + "\n");
         for (LineaPedido l : lineas) {
             sb.append(l.toString()).append("\n");

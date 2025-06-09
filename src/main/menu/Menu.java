@@ -40,7 +40,7 @@ public class Menu {
                 System.out.println("Cree un pedido: ");
                 pedido.crearPedido();
             } else if (opcion == 6) {
-                System.out.println("Lisa de pedidos:");
+                System.out.println("Lista de pedidos:");
                 pedido.mostrarPedido();
             } else if (opcion == 7) {
                 break;

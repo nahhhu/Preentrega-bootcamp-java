@@ -1,13 +1,15 @@
 package pedidos;
 
+import interfaces.Informativo;
 import productos.Producto;
 
-public class LineaPedido {
+public class LineaPedido implements Informativo {
     private Producto producto;
     private int cantidad;
 
     public LineaPedido(Producto producto, int cantidad){
-
+        this.producto = producto;
+        this.cantidad = cantidad;
     }
 
     public Producto getProducto() {
@@ -22,8 +24,13 @@ public class LineaPedido {
         return producto.getPrecio() * cantidad;
     }
 
+    @Override
+    public String formatearTexto() {
+        return producto.getNombre()  + " x" + cantidad  + " = $" + calcularSubTotal();
+    }
 
-    public String mostrarPedidos(){
-        return producto.getNombre()  + ("x") + cantidad  + ("= $") + calcularSubTotal();
+    @Override
+    public String toString() {
+        return formatearTexto();
     }
 }

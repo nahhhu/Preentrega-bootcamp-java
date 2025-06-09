@@ -20,10 +20,10 @@ public class Inventario {
     //Agrega productos dependiendo que tipoo de producto es
     public void agregarProducto() {
         //Pide el tipo de producto y se capitaliza para evitar errores
-        String tipoProducto = Input.texto("Selecciones el tipo de producto que desea agregar: Bebidas; Comida; Infusiones");
+        String tipoProducto = Input.texto("Selecciones el tipo de producto que desea agregar: Bebida; Comida; Infusiones");
         String tipoProductoFormateado = FormateoCadena.capitalizar(tipoProducto);
 
-        if (tipoProductoFormateado.equals("Bebidas")) {
+        if (tipoProductoFormateado.equals("Bebida")) {
             String nombre = Input.texto("Ingrese el nombre del producto:");
             String tipo = Input.texto("Ingrese el tipo de bebida:");
             double litros = Input.decimal("Ingrese la cantidad en litros:");
@@ -33,7 +33,7 @@ public class Inventario {
             productos.add(new Bebidas(nombre, tipo, litros, precio, stock));
 
         } else if (tipoProductoFormateado.equals("Comida")) {
-            String nombre = Input.texto("Ingrese el nombre del producto:");
+            String nombre = Input.texto("Ingrese que comida es el producto:");
             String marca = Input.texto("Ingrese la marca de la comida:");
             double peso = Input.decimal("Ingrese el peso de la comida");
             double precio = Input.decimal("Ingrese el precio:");

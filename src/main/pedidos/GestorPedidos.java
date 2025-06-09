@@ -17,7 +17,7 @@ public class GestorPedidos {
 
     public void crearPedido() {
         Pedido pedido = new Pedido();
-        boolean continuar =  true;
+        boolean continuar = true;
 
         while (continuar){
             inventario.mostrarProductos();
@@ -25,25 +25,26 @@ public class GestorPedidos {
             Producto p = inventario.buscarProductoPorIdONombre(opcion);
             int cantidad = Input.entero("Ingrese la cantidad");
 
-            if (opcion != null && cantidad <= p.getStock()) {
+            if (p != null && cantidad <= p.getStock()) {
                 pedido.agregarLinea(new LineaPedido(p, cantidad));
                 p.reducirStock(cantidad);
-                pedidos.add(pedido);
-                System.out.println("EL pedido se ha creado");
-                String avanzar =Input.texto("Quiere agregar mas productos?  si|no");
-                if (avanzar.equals("si")){
-                    continue;
-                } else if (avanzar.equals("no")) {
-                    continuar = false;
-                }
+            } else {
+                System.out.println("Stock insuficiente o producto no encontrado.");
+            }
+
+            String avanzar = Input.texto("¿Quiere agregar más productos?  si|no");
+            if (!avanzar.equalsIgnoreCase("si")) {
+                continuar = false;
             }
         }
+        pedidos.add(pedido);
+        System.out.println("El pedido se ha creado");
     }
 
     public void mostrarPedido(){
         if (!pedidos.isEmpty()){
             for (Pedido p : pedidos){
-               toString();
+                System.out.println(p);
             }
         }else {
             System.out.println("No hay pedidos creados");

@@ -128,4 +128,17 @@ public class Inventario {
             return;
         }
     }
+    public Producto buscarProductoPorIdONombre(String input) {
+        try {
+            int id = Integer.parseInt(input);
+            for (Producto p : productos) {
+                if (p.getId() == id) return p;
+            }
+        } catch (NumberFormatException e) {
+            for (Producto p : productos) {
+                if (p.getNombre().equalsIgnoreCase(input)) return p;
+            }
+        }
+        return null;
+    }
 }

@@ -2,11 +2,13 @@ package menu;
 
 import excepciones.OpcionIncorrectaException;
 import inventario.Inventario;
+import pedidos.GestorPedidos;
 import util.Input;
 
 public class Menu {
     public static void mostrarMenu() {
         Inventario inventario = new Inventario();
+        GestorPedidos pedido = new GestorPedidos(inventario);
         while (true) {
             System.out.println("+------------------------------------------+");
             System.out.println("|              MENÚ PRINCIPAL              |");
@@ -36,8 +38,10 @@ public class Menu {
                 inventario.eliminar();
             } else if (opcion == 5) {
                 System.out.println("Cree un pedido: ");
+                pedido.crearPedido();
             } else if (opcion == 6) {
                 System.out.println("Lisa de pedidos:");
+                pedido.mostrarPedido();
             } else if (opcion == 7) {
                 break;
             } else {

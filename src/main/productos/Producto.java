@@ -58,4 +58,12 @@ public abstract class Producto {
             throw new StockInvalidoException("El stock no puede ser negativo");
         }
     }
+
+    public void reducirStock(int cantidad) {
+        if (cantidad > 0 && cantidad <= stock) {
+            stock -= cantidad;
+        } else {
+            throw new IllegalArgumentException("Cantidad inválida para reducir stock.");
+        }
+    }
 }

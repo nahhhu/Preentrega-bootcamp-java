@@ -33,6 +33,7 @@ public class Menu {
                 inventario.buscarYActualizarProducto();
             } else if (opcion == 4) {
                 System.out.println("Elimine un producto: ");
+                inventario.eliminar();
             } else if (opcion == 5) {
                 System.out.println("Cree un pedido: ");
             } else if (opcion == 6) {

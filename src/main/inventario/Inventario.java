@@ -1,8 +1,10 @@
 package inventario;
 
 import excepciones.DatoInvalidoException;
+import excepciones.InventarioVacioException;
 import interfaces.Actualizable;
 import interfaces.Informativo;
+import interfaces.Eliminable;
 import productos.Bebidas;
 import productos.Comida;
 import productos.Infusiones;
@@ -50,8 +52,12 @@ public class Inventario {
         }
     }
 
-     // Muestra tambien los datos especificos de cada producto/
+    // Muestra tambien los datos especificos de cada producto/
     public void mostrarProductos() {
+        if (productos.isEmpty()){
+            System.out.println("El inventario esta vacio");
+            return;
+        }
         for (Producto p : productos) {
             System.out.println("-------------------------");
             if (p instanceof Informativo f) {
@@ -79,7 +85,6 @@ public class Inventario {
                 }
             }
         }
-
         System.out.println("Producto no encontrado.");
     }
 
@@ -92,6 +97,35 @@ public class Inventario {
             }
         } else {
             System.out.println("Este producto no puede ser actualizado.");
+        }
+    }
+
+
+    public void eliminar() {
+        if (productos.isEmpty()) {
+            System.out.println("No hay productos para eliminar");
+        }
+
+        mostrarProductos();
+        int id = Input.entero("Ingrese el ID del producto que quiere eliminar");
+        Producto productoEliminar  = null;
+
+        String confirmacion = Input.texto("Si desea eliminar confirme SI | NO");
+        if (confirmacion.equals("SI")){
+            for (Producto p : productos){
+                if (p.getId() == id){
+                    productoEliminar = p ;
+                    break;
+                }
+            }
+            if (productoEliminar !=  null){
+                productos.remove(productoEliminar);
+                System.out.println("Se ha eliminado el producto");
+            }else {
+                System.out.println("No se encontro el producto");
+            }
+        }else {
+            return;
         }
     }
 }
